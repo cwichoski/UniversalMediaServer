@@ -1248,7 +1248,7 @@ public class DLNAMediaInfo implements Cloneable {
 									}
 
 								} else {
-									codec = token.substring(offset).trim();
+									codec = token.substring(offset);
 									// workaround for AAC audio formats
 									if (codec.equals("aac")) { 
 										codec = FormatConfiguration.AAC_LC;
@@ -1308,7 +1308,15 @@ public class DLNAMediaInfo implements Cloneable {
 						while (st.hasMoreTokens()) {
 							String token = st.nextToken().trim();
 							if (token.startsWith("Stream")) {
-								codecV = token.substring(token.indexOf("Video: ") + 7);
+								int offset = token.indexOf("Video: ") + 7;
+								String codec;
+								if (token.indexOf(" ", offset) != -1) {
+									codec = token.substring(offset, token.indexOf(" ", offset)).trim();
+								} else {
+									codec = token.substring(offset);
+								}
+
+								codecV = codec;
 								videoTrackCount++;
 							} else if ((token.contains("tbc") || token.contains("tb(c)"))) {
 								// A/V sync issues with newest FFmpeg, due to the new tbr/tbn/tbc outputs
