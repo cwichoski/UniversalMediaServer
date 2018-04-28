@@ -1641,7 +1641,6 @@ public abstract class DLNAResource extends HTTPResource implements Cloneable, Ru
 	 * none should be displayed. The "base" name is the name of this
 	 * {@link DLNAResource} without any prefix or suffix.
 	 *
-	 * @param configuration the {@link PmsConfiguration} to use.
 	 * @return The base display name or {@code ""}.
 	 */
 	protected String getDisplayNameBase() {

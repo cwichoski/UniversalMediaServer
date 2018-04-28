@@ -7,7 +7,6 @@ import net.pms.Messages;
 import net.pms.PMS;
 import net.pms.dlna.*;
 import net.pms.util.UMSUtils;
-import org.apache.commons.text.StringEscapeUtils;
 
 public class MediaLibraryFolder extends VirtualFolder {
 	public static final int FILES = 0;
@@ -239,16 +238,10 @@ public class MediaLibraryFolder extends VirtualFolder {
 
 	@Override
 	protected String getDisplayNameBase() {
-		String nameToShow;
 		if (isNotBlank(displayNameOverride)) {
-			nameToShow = displayNameOverride;
-		} else {
-			nameToShow = getName();
+			return displayNameOverride;
 		}
 
-		// this unescape trick is to solve the problem of a name containing
-		// unicode stuff like \u005e
-		// if it's done here it will fix this for all objects
-		return isNoName() ? "" : StringEscapeUtils.unescapeJava(nameToShow);
+		return super.getDisplayNameBase();
 	}
 }
