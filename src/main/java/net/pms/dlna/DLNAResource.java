@@ -5124,7 +5124,7 @@ public abstract class DLNAResource extends HTTPResource implements Cloneable, Ru
 		}
 
 		try {
-			if (PMS.get().getConfiguration().getUseCache()) {
+			if (configuration.getUseCache()) {
 				PMS.get().getDatabase().insertVideoMetadata(file.getAbsolutePath(), file.lastModified(), media);
 			}
 		} catch (SQLException e) {
