@@ -142,7 +142,7 @@ public class NavigationShareTab {
 		}
 	}
 
-	private static final String PANEL_COL_SPEC = "left:pref,          50dlu,                pref, 150dlu,                       pref, 25dlu,               pref, 9dlu, pref, default:grow, pref, 25dlu";
+	private static final String PANEL_COL_SPEC = "left:pref,          85dlu,                pref, 150dlu,                       pref, 25dlu,               pref, 9dlu, pref, default:grow, pref, 25dlu";
 	private static final String PANEL_ROW_SPEC =
 		//                                //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		"p,"                              // Thumbnails
